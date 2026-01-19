@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: task-api
-        image: your-dockerhub-username/secure-task-api:latest
+        image: rushhaabhhh/secure-task-api:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

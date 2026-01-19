@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 env:
-  DOCKER_IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/secure-task-api
+  DOCKER_IMAGE: rushhaabhhh/secure-task-api
   K8S_NAMESPACE: task-api-prod
 
 jobs:
