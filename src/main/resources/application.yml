@@ -1,19 +1,19 @@
-# Spring Boot Application Configuration
+# Vulnerability Scanner Configuration
 server:
   port: 8080
 
 spring:
   application:
-    name: task-management-devops
+    name: vulnerability-scanner
   
   # H2 Database Configuration
   datasource:
-    url: jdbc:h2:mem:taskdb
+    url: jdbc:h2:mem:vulndb
     driver-class-name: org.h2.Driver
     username: sa
     password: 
   
-  # H2 Console Configuration (for development/debugging)
+  # H2 Console (for development/debugging)
   h2:
     console:
       enabled: true
@@ -25,13 +25,17 @@ spring:
     hibernate:
       ddl-auto: create-drop
     show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
   
   # Jackson JSON Configuration
   jackson:
-    serialization-inclusion: non_null
-    default-property-inclusion: non_null
+    serialization:
+      write-dates-as-timestamps: false
+    time-zone: UTC
 
-# Actuator Configuration (for health checks in CI/CD)
+# Actuator Configuration
 management:
   endpoints:
     web:
@@ -48,7 +52,7 @@ management:
     readinessstate:
       enabled: true
 
-# Springdoc OpenAPI Configuration (for Swagger UI)
+# Springdoc OpenAPI Configuration
 springdoc:
   api-docs:
     path: /api-docs
@@ -60,4 +64,4 @@ springdoc:
 logging:
   level:
     root: INFO
-    com.example.task_management_devops: DEBUG
+    com.example.vulnerability_scanner: DEBUG
