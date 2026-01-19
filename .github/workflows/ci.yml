@@ -188,7 +188,7 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: rushhaabhhh
-          token: dckr_pat__Duq_gJkuowBs0CDmQ1xLdo90DI
+          token: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Push Docker Image
         if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
